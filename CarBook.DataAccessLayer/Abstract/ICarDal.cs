@@ -9,5 +9,6 @@ namespace CarBook.DataAccessLayer.Abstract
 {
     public interface ICarDal:IGenericDal<Car>
     {
+        List<Car> GetAllCarWithBrands();
     }
 }
