@@ -9,5 +9,6 @@ namespace CarBook.BusinessLayer.Abstract
 {
     public interface IPriceService:IGenericService<Price>
     {
+        List<Price> TGetPricesWithCars();
     }
 }
