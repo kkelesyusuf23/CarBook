@@ -33,6 +33,13 @@ namespace CarBook.PresentationLayer.Controllers
 			{
 				return RedirectToAction("Index","Login");
 			}
+			else
+			{
+				foreach(var item in result.Errors)
+				{
+                    ModelState.AddModelError("", item.Description);
+                }
+			}
 			return View();
 		}
 	}

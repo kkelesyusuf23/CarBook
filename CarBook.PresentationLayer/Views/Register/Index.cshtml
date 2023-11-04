@@ -36,11 +36,11 @@
                         <div class="form-group">
                             <input type="text" class="form-input" asp-for="Username" placeholder="Kullanıcı Adınız" />
                         </div>
-                        <div class="form-group">
+                        <div class="form-group">    
                             <input type="email" class="form-input" asp-for="Email" placeholder="Mail Adresiniz" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" asp-for="Password" placeholder="Şifreniz" />
+                            <input type="text" class="form-input" required asp-for="Password" placeholder="Şifreniz" />
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
@@ -49,6 +49,9 @@
                         </div>
                         <div class="form-group">
                             <input type="submit" class="form-submit" value="Kayıt Ol" />
+                        </div>
+                        <div class="text-danger" asp-validation-summary="ModelOnly">
+
                         </div>
                     </form>
                     <p class="loginhere">
