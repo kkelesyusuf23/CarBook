@@ -22,5 +22,10 @@ namespace CarBook.PresentationLayer.Controllers
 			var values = _carService.TGetAllCarWithBrands();//bu method brand carCategori ve carStatus tablolarını da dahil ediyor
 			return View(values);
 		}
+        public IActionResult CarList()
+        {
+            var values = _carService.TGetAllCarWithBrands();
+            return View(values);
+        }
 	}
 }

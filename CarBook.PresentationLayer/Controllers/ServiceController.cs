@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarBook.BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.PresentationLayer.Controllers
 {
 	public class ServiceController : Controller
 	{
-		public IActionResult Index()
+		private readonly IServiceService _serviceService;
+
+        public ServiceController(IServiceService serviceService)
+        {
+            _serviceService = serviceService;
+        }
+
+        public IActionResult Index()
 		{
-			return View();
+			var values = _serviceService.TGetListAll();
+			return View(values);
 		}
 	}
 }
