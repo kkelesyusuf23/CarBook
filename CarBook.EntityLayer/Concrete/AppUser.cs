@@ -11,7 +11,8 @@ namespace CarBook.EntityLayer.Concrete
 	{
         public string? Name { get; set; }
         public string? Surname { get; set; }
-        public string? City { get; set; }
+        public string? Description { get; set; }
         public string? ImageURL { get; set; }
+        public List<CarDetail> CarDetails { get; set; }
     }
 }

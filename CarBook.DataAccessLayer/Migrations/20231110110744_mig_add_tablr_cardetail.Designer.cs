@@ -4,6 +4,7 @@ using CarBook.DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBook.DataAccessLayer.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20231110110744_mig_add_tablr_cardetail")]
+    partial class mig_add_tablr_cardetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,11 +65,11 @@ namespace CarBook.DataAccessLayer.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -273,35 +275,6 @@ namespace CarBook.DataAccessLayer.Migrations
                     b.HasKey("CarStatusID");
 
                     b.ToTable("CarStatuses");
-                });
-
-            modelBuilder.Entity("CarBook.EntityLayer.Concrete.Comment", b =>
-                {
-                    b.Property<int>("CommentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentID"), 1L, 1);
-
-                    b.Property<int>("CarID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameSurname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CommentID");
-
-                    b.HasIndex("CarID");
-
-                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.HowItWorksStep", b =>
@@ -540,17 +513,6 @@ namespace CarBook.DataAccessLayer.Migrations
                     b.Navigation("Car");
                 });
 
-            modelBuilder.Entity("CarBook.EntityLayer.Concrete.Comment", b =>
-                {
-                    b.HasOne("CarBook.EntityLayer.Concrete.Car", "Car")
-                        .WithMany("Comments")
-                        .HasForeignKey("CarID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Car");
-                });
-
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.Price", b =>
                 {
                     b.HasOne("CarBook.EntityLayer.Concrete.Car", "Car")
@@ -626,8 +588,6 @@ namespace CarBook.DataAccessLayer.Migrations
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.Car", b =>
                 {
                     b.Navigation("CarDetails");
-
-                    b.Navigation("Comments");
 
                     b.Navigation("Prices");
                 });
