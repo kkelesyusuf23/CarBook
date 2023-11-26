@@ -9,5 +9,6 @@ namespace CarBook.BusinessLayer.Abstract
 {
     public interface IServiceService:IGenericService<Service>
     {
+        public List<Service> TGetFirst3Service();
     }
 }

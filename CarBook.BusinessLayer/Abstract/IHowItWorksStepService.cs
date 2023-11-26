@@ -9,5 +9,6 @@ namespace CarBook.BusinessLayer.Abstract
 {
     public interface IHowItWorksStepService:IGenericService<HowItWorksStep>
     {
-    }
+		List<HowItWorksStep> TGetFirst5Steps();
+	}
 }

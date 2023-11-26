@@ -28,7 +28,12 @@ namespace CarBook.BusinessLayer.Concrete
             return _howItWorksStepDal.GetById(id);
         }
 
-        public List<HowItWorksStep> TGetListAll()
+		public List<HowItWorksStep> TGetFirst5Steps()
+		{
+			return _howItWorksStepDal.GetFirst5Steps();
+		}
+
+		public List<HowItWorksStep> TGetListAll()
         {
             return _howItWorksStepDal.GetListAll();
         }

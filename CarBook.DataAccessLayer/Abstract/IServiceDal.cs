@@ -9,5 +9,6 @@ namespace CarBook.DataAccessLayer.Abstract
 {
     public interface IServiceDal:IGenericDal<Service>
     {
+        List<Service> GetFirst3Service();
     }
 }

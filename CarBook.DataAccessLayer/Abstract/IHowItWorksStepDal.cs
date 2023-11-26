@@ -9,5 +9,6 @@ namespace CarBook.DataAccessLayer.Abstract
 {
     public interface IHowItWorksStepDal:IGenericDal<HowItWorksStep>
     {
+        List<HowItWorksStep> GetFirst5Steps();
     }
 }
