@@ -21,6 +21,12 @@ namespace CarBook.EntityLayer.Concrete
         public int Year { get; set; }
         public bool Status { get; set; }
         public int CarStatusID { get; set; }
+        //public int GearTypID { get; set; }
+        //public GearTyp GearTyp { get; set; }
+        //public int CarModelID { get; set; }
+        //public CarModel CarModel { get; set; }
+        //public int CarYearID { get; set; }
+        //public CarYear CarYear { get; set; }
         public CarStatus CarStatus { get; set; }
         public List<Price> Prices { get; set; }
         public List<CarDetail> CarDetails { get; set; }
